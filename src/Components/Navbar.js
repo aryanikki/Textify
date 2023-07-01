@@ -20,9 +20,9 @@ export default function Navbar(props) {
           <a className="nav-link" href="/">{props.aboutText}</a>
         </li>
       </ul>
-      <div className="form-check form-switch text-light">
-  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" for="flexSwitchCheckDefault">Enable Dark mode</label>
+      <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'}`}>
+  <input className="form-check-input" onClick={props.togglemode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark mode</label>
 </div>
     </div>
   </div>
