@@ -14,9 +14,12 @@ function App() {
   const togglemode =() =>{
     if(mode === "light"){
     setmode('dark');
+    document.body.style.background ='grey';
+
   }
   else{
     setmode('light');
+    document.body.style.background ='white';
   }
 }
   return (
@@ -26,7 +29,7 @@ function App() {
 <Navbar title='Textify' mode={mode} togglemode={togglemode}/>
 {/*Importing component Textform*/}
 <div className='container'>
-<Textform heading="Enter the text here"/>
+<Textform heading="Enter the text here"mode={mode}/>
 {/*<About/>*/}
 </div>
 

@@ -38,10 +38,11 @@ export default function Textform(props) {
   //setText="hello world";  ---->correct way
   return (
     <>
-    <div className='container'>
+    <div className='container'style={{color: props.mode === 'dark'?'white':'black'}}>
    <h1>{props.heading}</h1>
 <div className="mb-3">
-  <textarea className="form-control" value={text} onChange={handleOnChange}id="MyText" rows="12"></textarea>
+  <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark'?'grey':'white',
+color: props.mode === 'dark'?'white':'black'}}id="MyText" rows="12"></textarea>
   
 </div>
 {/*mx-2 is used to keep distance between to classes*/}
@@ -52,7 +53,7 @@ export default function Textform(props) {
 
 
 </div>
-<div className='container'>
+<div className='container'style={{color: props.mode === 'dark'?'white':'black'}}>
   <h3> Your text summary</h3>
   <p>{text.split(" ").filter(i => i).length} words and {text.length} characters {text.split('.').filter(i => i).length} sentences</p>
   <p>{0.08 * text.split(" ").length} minutes to read</p>
