@@ -5,6 +5,7 @@ export default function Textform(props) {
    // console.log("Uppercase was clicked" + text)
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert(" Text converted to Uppercase", "success");
   }
     const handleOnChange=(event)=>{
     //  console.log("On change");
@@ -14,14 +15,17 @@ export default function Textform(props) {
   const handlelowClick=()=>{
      let newText =text.toLowerCase();
      setText(newText);
+     props.showAlert(" Text converted to Lowercase", "success");
   }
   const handleclrClick=()=>{
     let newText ="";
     setText(newText);
+    props.showAlert(" Text Cleared", "success");
  }
  const handleExtraSpaces =() =>{
   let newText = text.split(/[ ]+/);
   setText(newText.join(" "))
+  props.showAlert(" Extra spaces from the text has been removed", "success");
  }
 
      // Declare a new state variable, which we'll call "setText"
@@ -58,7 +62,7 @@ color: props.mode === 'dark'?'white':'black'}}id="MyText" rows="12"></textarea>
   <p>{text.split(" ").filter(i => i).length} words and {text.length} characters {text.split('.').filter(i => i).length} sentences</p>
   <p>{0.08 * text.split(" ").length} minutes to read</p>
   <h3>Preview of your text</h3>
-  <p>{text}</p>
+  <p>{text.length>0 ?text: "Enter text above to Preview"}</p>
 </div>
 </>
 
